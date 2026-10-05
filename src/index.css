@@ -1,0 +1,951 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: 'Geist Variable', sans-serif;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+}
+
+/* =========================================================
+   ARENA TESTE — SCROLLBARS
+   ========================================================= */
+
+/*
+ * Scroll global
+ * Chromium / Edge / Safari
+ */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: #07070a;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border: 2px solid #07070a;
+  border-radius: 999px;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: #71717a;
+}
+
+
+/*
+ * Scroll específico da Arena
+ */
+.arena-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #7c3aed transparent;
+
+  scrollbar-gutter: stable;
+
+  overscroll-behavior: contain;
+
+  scroll-behavior: smooth;
+}
+
+
+/*
+ * Largura do scroll
+ */
+.arena-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+/*
+ * Trilho
+ */
+.arena-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.015);
+
+  border-radius: 999px;
+
+  margin-block: 8px;
+}
+
+
+/*
+ * Barra móvel
+ */
+.arena-scrollbar::-webkit-scrollbar-thumb {
+  min-height: 60px;
+
+  border: 2px solid transparent;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #a855f7 0%,
+      #7c3aed 45%,
+      #5b21b6 100%
+    )
+    padding-box;
+
+  transition:
+    background 200ms ease,
+    box-shadow 200ms ease;
+}
+
+
+/*
+ * Hover
+ */
+.arena-scrollbar::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(
+      180deg,
+      #c084fc 0%,
+      #8b5cf6 45%,
+      #6d28d9 100%
+    )
+    padding-box;
+}
+
+
+/*
+ * Canto do scroll
+ */
+.arena-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* === ARENA DICEBOX START === */
+
+#arena-dice-box {
+  width: 100%;
+  height: 100%;
+  z-index: 210;
+}
+
+#arena-dice-box canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  background: transparent !important;
+}
+
+/* -----------------------------------------
+   CORES DE EFEITO
+   ----------------------------------------- */
+
+.arena-roll-overlay {
+  --arena-effect: 167 139 250;
+  --arena-effect-strong: 124 58 237;
+}
+
+.arena-effect-none {
+  --arena-effect: 212 212 216;
+  --arena-effect-strong: 113 113 122;
+}
+
+.arena-effect-fire {
+  --arena-effect: 251 146 60;
+  --arena-effect-strong: 234 88 12;
+}
+
+.arena-effect-ice {
+  --arena-effect: 103 232 249;
+  --arena-effect-strong: 8 145 178;
+}
+
+.arena-effect-electric {
+  --arena-effect: 254 240 138;
+  --arena-effect-strong: 234 179 8;
+}
+
+.arena-effect-poison {
+  --arena-effect: 110 231 183;
+  --arena-effect-strong: 5 150 105;
+}
+
+.arena-effect-arcane {
+  --arena-effect: 196 181 253;
+  --arena-effect-strong: 124 58 237;
+}
+
+/* -----------------------------------------
+   VIGNETTE / BLOOM
+   ----------------------------------------- */
+
+.arena-effect-vignette {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgb(var(--arena-effect) / 0.10),
+      transparent 46%
+    ),
+    radial-gradient(
+      circle at center,
+      transparent 48%,
+      rgb(var(--arena-effect-strong) / 0.15)
+    );
+
+  pointer-events: none;
+}
+
+/* -----------------------------------------
+   BORDAS
+   ----------------------------------------- */
+
+@keyframes arenaEdgePulse {
+  0% {
+    opacity: 0.45;
+    filter: blur(5px);
+  }
+
+  50% {
+    opacity: 1;
+    filter: blur(1px);
+  }
+
+  100% {
+    opacity: 0.5;
+    filter: blur(5px);
+  }
+}
+
+.arena-edge {
+  position: absolute;
+
+  z-index: 215;
+
+  pointer-events: none;
+
+  animation:
+    arenaEdgePulse
+    0.85s
+    ease-in-out
+    infinite;
+
+  box-shadow:
+    0 0 34px
+    rgb(
+      var(--arena-effect-strong)
+      / 0.8
+    );
+}
+
+.arena-edge-top,
+.arena-edge-bottom {
+  left: 3%;
+  right: 3%;
+
+  height: 5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgb(
+        var(--arena-effect)
+        / 0.92
+      ),
+      transparent
+    );
+}
+
+.arena-edge-top {
+  top: 0;
+}
+
+.arena-edge-bottom {
+  bottom: 0;
+}
+
+.arena-edge-left,
+.arena-edge-right {
+  top: 3%;
+  bottom: 3%;
+
+  width: 5px;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgb(
+        var(--arena-effect)
+        / 0.92
+      ),
+      transparent
+    );
+}
+
+.arena-edge-left {
+  left: 0;
+}
+
+.arena-edge-right {
+  right: 0;
+}
+
+/* -----------------------------------------
+   CANTOS
+   ----------------------------------------- */
+
+@keyframes arenaCornerPulse {
+  0% {
+    opacity: 0.16;
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 0.52;
+    transform: scale(1.12);
+  }
+
+  100% {
+    opacity: 0.18;
+    transform: scale(0.9);
+  }
+}
+
+.arena-corner {
+  position: absolute;
+
+  z-index: 214;
+
+  width: 240px;
+  height: 240px;
+
+  border-radius: 999px;
+
+  background:
+    rgb(
+      var(--arena-effect-strong)
+      / 0.28
+    );
+
+  filter: blur(78px);
+
+  animation:
+    arenaCornerPulse
+    1.15s
+    ease-in-out
+    infinite;
+}
+
+.arena-corner-tl {
+  top: -100px;
+  left: -100px;
+}
+
+.arena-corner-tr {
+  top: -100px;
+  right: -100px;
+}
+
+.arena-corner-bl {
+  bottom: -100px;
+  left: -100px;
+}
+
+.arena-corner-br {
+  right: -100px;
+  bottom: -100px;
+}
+
+/* -----------------------------------------
+   FOGO
+   ----------------------------------------- */
+
+@keyframes arenaFireRise {
+  0% {
+    opacity: 0;
+    transform:
+      translateY(28px)
+      scale(0.35);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translateY(-150px)
+      scale(1.65);
+  }
+}
+
+.arena-fire-layer {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 216;
+}
+
+.arena-fire-particle {
+  position: absolute;
+
+  bottom: -30px;
+
+  width: 10px;
+  height: 42px;
+
+  border-radius:
+    999px 999px 45% 45%;
+
+  background:
+    linear-gradient(
+      to top,
+      rgb(239 68 68 / 0),
+      rgb(249 115 22 / 0.95),
+      rgb(254 240 138 / 0.92)
+    );
+
+  filter: blur(2px);
+
+  box-shadow:
+    0 0 22px
+    rgb(249 115 22 / 0.9);
+
+  animation-name:
+    arenaFireRise;
+
+  animation-timing-function:
+    ease-out;
+
+  animation-iteration-count:
+    infinite;
+}
+
+/* -----------------------------------------
+   RESULTADO
+   ----------------------------------------- */
+
+@keyframes arenaResultBloom {
+  0% {
+    transform: scale(1.38);
+
+    filter:
+      blur(20px)
+      brightness(2.5);
+  }
+
+  28% {
+    transform: scale(0.94);
+
+    filter:
+      blur(0)
+      brightness(1.8);
+  }
+
+  58% {
+    transform: scale(1.04);
+
+    filter:
+      blur(0)
+      brightness(1.28);
+  }
+
+  100% {
+    transform: scale(1);
+
+    filter:
+      blur(0)
+      brightness(1);
+  }
+}
+
+@keyframes arenaChromaticLeft {
+  from {
+    opacity: 0.85;
+    transform:
+      translateX(-18px);
+  }
+
+  to {
+    opacity: 0;
+    transform:
+      translateX(0);
+  }
+}
+
+@keyframes arenaChromaticRight {
+  from {
+    opacity: 0.8;
+    transform:
+      translateX(18px);
+  }
+
+  to {
+    opacity: 0;
+    transform:
+      translateX(0);
+  }
+}
+
+.arena-result-wrap {
+  position: relative;
+
+  text-align: center;
+
+  color:
+    rgb(
+      var(--arena-effect)
+    );
+}
+
+.arena-result-label {
+  margin-bottom: 14px;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 0.38em;
+
+  color:
+    rgb(
+      var(--arena-effect)
+      / 0.8
+    );
+}
+
+.arena-result-number {
+  position: relative;
+
+  isolation: isolate;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size:
+    clamp(
+      6rem,
+      18vw,
+      15rem
+    );
+
+  font-weight: 950;
+
+  line-height: 0.9;
+
+  color:
+    rgb(
+      var(--arena-effect)
+    );
+
+  text-shadow:
+    0 0 10px
+      rgb(
+        var(--arena-effect)
+        / 0.9
+      ),
+    0 0 34px
+      rgb(
+        var(--arena-effect-strong)
+        / 0.85
+      ),
+    0 0 90px
+      rgb(
+        var(--arena-effect-strong)
+        / 0.5
+      );
+
+  animation:
+    arenaResultBloom
+    900ms
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    )
+    both;
+}
+
+.arena-result-number::before,
+.arena-result-number::after {
+  content:
+    attr(data-value);
+
+  position: absolute;
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+}
+
+.arena-result-number::before {
+  color:
+    rgb(34 211 238 / 0.7);
+
+  animation:
+    arenaChromaticLeft
+    780ms
+    ease-out
+    both;
+}
+
+.arena-result-number::after {
+  color:
+    rgb(244 63 94 / 0.65);
+
+  animation:
+    arenaChromaticRight
+    780ms
+    ease-out
+    both;
+}
+
+.arena-result-expression {
+  margin-top: 24px;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size: 17px;
+
+  color:
+    rgb(255 255 255 / 0.88);
+}
+
+.arena-result-visual-note {
+  margin-top: 10px;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.2em;
+
+  color:
+    rgb(255 255 255 / 0.32);
+}
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+  .arena-edge,
+  .arena-corner,
+  .arena-fire-particle,
+  .arena-result-number,
+  .arena-result-number::before,
+  .arena-result-number::after {
+    animation: none !important;
+  }
+}
+
+/* === ARENA DICEBOX END === */
+
+
+/* =========================================================
+   ARENA — PERFORMANCE PASS
+   ========================================================= */
+
+/*
+ * Isola a composição gráfica da animação.
+ * Evita repaints desnecessários no restante da aplicação.
+ */
+.arena-roll-overlay {
+  contain: paint;
+  isolation: isolate;
+}
+
+/*
+ * Estes elementos realmente se movimentam.
+ * Aqui vale a pena avisar o compositor antecipadamente.
+ */
+.arena-edge,
+.arena-corner,
+.arena-fire-particle,
+.arena-result-number,
+.arena-result-number::before,
+.arena-result-number::after {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/*
+ * Força composição pela GPU sem alterar o visual.
+ */
+.arena-edge,
+.arena-corner,
+.arena-fire-layer,
+.arena-result-wrap {
+  transform: translateZ(0);
+}
+
+/*
+ * Substitui a antiga animação de borda que alterava blur
+ * a cada frame. Blur permanece visualmente representado
+ * pelo box-shadow estático.
+ */
+@keyframes arenaEdgePulseOptimized {
+  0% {
+    opacity: 0.48;
+    transform: translateZ(0) scale(0.985);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateZ(0) scale(1);
+  }
+
+  100% {
+    opacity: 0.52;
+    transform: translateZ(0) scale(0.99);
+  }
+}
+
+.arena-edge {
+  animation:
+    arenaEdgePulseOptimized
+    0.72s
+    ease-in-out
+    infinite;
+}
+
+/*
+ * O bloom continua existindo, porém não animamos blur.
+ * Transform e opacity são muito mais baratos no compositor.
+ */
+@keyframes arenaResultBloomOptimized {
+  0% {
+    opacity: 0;
+    transform:
+      translateZ(0)
+      scale(1.28);
+  }
+
+  32% {
+    opacity: 1;
+    transform:
+      translateZ(0)
+      scale(0.94);
+  }
+
+  62% {
+    transform:
+      translateZ(0)
+      scale(1.035);
+  }
+
+  100% {
+    opacity: 1;
+    transform:
+      translateZ(0)
+      scale(1);
+  }
+}
+
+.arena-result-number {
+  animation:
+    arenaResultBloomOptimized
+    650ms
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    )
+    both;
+}
+
+/*
+ * Aberração cromática mais curta.
+ * Mantém o impacto sem permanecer processando.
+ */
+.arena-result-number::before {
+  animation-duration: 480ms;
+}
+
+.arena-result-number::after {
+  animation-duration: 480ms;
+}
+
+/*
+ * As partículas continuam suaves, porém evitamos blur pesado
+ * em cada uma delas.
+ */
+.arena-fire-particle {
+  filter: none;
+
+  box-shadow:
+    0 0 12px rgb(249 115 22 / 0.70),
+    0 0 24px rgb(249 115 22 / 0.28);
+}
+
+/*
+ * Glow dos cantos permanece estático no blur.
+ * Apenas transform/opacity são animados.
+ */
+.arena-corner {
+  will-change: transform, opacity;
+}
+
+/*
+ * Canvas do DiceBox isolado da interface React.
+ */
+#arena-dice-box {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transform: translateZ(0);
+}
+
+#arena-dice-box canvas {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
