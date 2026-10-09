@@ -1,12 +1,14 @@
-import { Activity, Database, Swords } from "lucide-react"
+import { Activity, Database, Swords,
+  Map,} from "lucide-react"
 import { useState } from "react"
 
 import { ArenaTab } from "@/components/arena/ArenaTab"
 import { SubstatusTab } from "@/components/substatus/SubstatusTab"
+import { MapTab } from "@/components/map/MapTab"
 import { DataTab } from "@/components/data/DataTab"
 import { RollAnimationOverlay } from "@/components/arena/RollAnimationOverlay"
 
-type MainTab = "arena" | "dados" | "substatus"
+type MainTab = "arena" | "dados" | "substatus" | "mapa"
 
 const tabs = [
   {
@@ -23,6 +25,11 @@ const tabs = [
     id: "substatus" as const,
     label: "Substatus",
     icon: Activity,
+  },
+  {
+    id: "mapa" as const,
+    label: "Mapa",
+    icon: Map,
   },
 ]
 
@@ -105,6 +112,11 @@ function App() {
           {activeTab === "substatus" && (
             <SubstatusTab />
           )}
+
+          {activeTab === "mapa" && (
+            <MapTab />
+          )}
+
         </div>
       </div>
           <RollAnimationOverlay />
